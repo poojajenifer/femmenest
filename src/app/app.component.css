@@ -1,0 +1,7 @@
+.container{
+    display: flex;
+        /* align-items: revert-layer; */
+        position: relative;
+        justify-content: center;
+        top: 4rem;
+}

@@ -1,0 +1,600 @@
+<div class="topbar transition">
+	<div class="bars">
+		<button type="button" class="btn transition" id="sidebar-toggle">
+			<i class="fa fa-bars"></i>
+		</button>
+	</div>
+		<div class="menu">
+			<ul>
+				<li style="position: relative;top: 20rem;left: 62rem;" class="nav-item dropdown">
+					<a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  <img src="assets/images/avatar/avatar-1.png" alt="">
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="">
+						<!-- <a class="dropdown-item" href="my-profile.html"><i class="fa fa-user size-icon-1"></i> <span>My Profile</span></a> -->
+						<!-- <a class="dropdown-item" href="settings.html"><i class="fa fa-cog size-icon-1"></i> <span>Settings</span></a> -->
+						<hr class="dropdown-divider">
+						<a class="dropdown-item" href="#"><i class="fa fa-sign-out-alt  size-icon-1"></i> <span>Logout</span></a>
+					</ul>
+				  </li>
+				<li class="nav-item dropdown dropdown-list-toggle">
+		<li class="nav-item dropdown">
+			<a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			  <img src="assets/images/avatar/avatar-1.png" alt="">
+			</a>
+			<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="my-profile.html"><i class="fa fa-user size-icon-1"></i> <span>My Profile</span></a>
+				<a class="dropdown-item" href="settings.html"><i class="fa fa-cog size-icon-1"></i> <span>Settings</span></a>
+				<hr class="dropdown-divider">
+				<a class="dropdown-item" href="#"><i class="fa fa-sign-out-alt  size-icon-1"></i> <span>My Profile</span></a>
+			</ul>
+		  </li>
+	<!-- </div> -->
+
+	<!--Sidebar-->
+	<div class="sidebar transition overlay-scrollbars animate__animated  animate__slideInLeft">
+        <div class="sidebar-content"> 
+        	<div id="sidebar">
+			
+			<!-- Logo -->
+			<div class="logo">
+					<h2 class="mb-0"><img src="assets/images/logo.png"> KCT Hostel</h2>
+			</div>
+
+            <ul class="side-menu">
+                <li>
+					<a href="dashboard" class="Dashboard active sideMenu" style="width: 14rem;">
+						<i class='bx bxs-dashboard icon' ></i> Dashboard
+					</a>
+				</li>
+
+				<li>
+                    <a class="Outpass sideMenu" (click)="ShowOutpass($event)" style="width: 14rem;">
+						<i class='bx bxs-user icon' ></i> 
+						Outpass 
+					</a>
+
+                </li>
+
+				<li>
+                    <a class="Maintainence sideMenu" (click)="showMaintainenceRequests($event)" style="width: 14rem;">
+						<i class='fa fa-pencil-ruler icon' ></i> 
+						Maintainance 
+					</a>
+                </li>
+
+
+				<li>
+					<a class="FeeddBack sideMenu" (click)="showFeedbackRequests($event)" style="width: 14rem;"><i class='fa fa-heart icon' ></i> 
+						FeedBack
+					</a>
+				</li>
+
+				<li>
+					<a class="FeeddBack sideMenu" (click)="showComplaintRequests($event)" style="width: 14rem;"><i class='bx bxs-error icon' ></i> 
+						Complaint
+					</a>
+				</li>
+
+            </ul>
+
+            <div class="ads">
+				<div class="wrapper">
+					<div class="help-icon"><i class="fa fa-circle-question fa-3x"></i></div>
+					<p>Need Help with <strong>KCT</strong>?</p>
+                    <a href="docs/" class="btn-upgrade">Documentation</a>
+                 </div>
+            </div>
+        </div>
+
+       </div> 
+	 </div>
+
+    <!-- End Sidebar-->
+
+
+	<div class="sidebar-overlay"></div>
+
+
+	<!--Content Start-->
+	<div *ngIf="showDashboard">
+	<div style="position: relative;top: 20rem;padding-left:0px;" class="content-start transition">
+		<div class="container-fluid dashboard">
+			<div class="content-header">
+				<h1>Dashboard</h1>
+				<p></p>
+			</div>
+			
+			<div class="row" style="width: 70rem;">
+
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-4 d-flex align-items-center">
+									<i class="fas fa-inbox icon-home bg-primary text-light"></i>
+								</div>
+								<div class="col-8">
+									<p>Complaint</p>
+									<h5>{{listOfRequests.length}}</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-4 d-flex align-items-center">
+									<i class="fas fa-clipboard-list icon-home bg-success text-light"></i>
+								</div>
+								<div class="col-8">
+									<p>FeedBack</p>
+									<h5>{{listOfFeedback.length}}</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-4 d-flex align-items-center">
+									<i class="fas fa-chart-bar  icon-home bg-info text-light"></i>
+								</div>
+								<div class="col-8">
+									<p>Maintainance Request
+									</p>
+									<h5>{{listOfMatainence.length}}</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-3">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-4 d-flex align-items-center">
+									<i class="fas fa-id-card  icon-home bg-warning text-light"></i>
+								</div>
+								<div class="col-8">
+									<p>Generate Outpass Request</p>
+									<h5>{{listOfOutpass.length}}</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<h4>Latest Requests</h4>
+						</div>
+						<div class="card-body"> 
+						<div class="table-responsive" style="max-height: 21rem;overflow-y: auto;"> 
+						<table class="table table-striped">
+							<thead>
+							  <tr>
+								<th scope="col">Id</th>
+								<th scope="col">Student Name</th>
+								<th scope="col">Date</th>
+								<th scope="col">Status</th>
+								<th scope="col">Request Type</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr *ngFor="let request of listOfRequests">
+								<th scope="row">#SK{{request.id}}	</th>
+								<td>{{request.name}}</td>
+								<td>{{request.createdDate}}</td>
+								<td><span class="text-success">{{request.status}}</span></td>
+								<td>{{request.type}}</td>
+								<!-- <td><button class="btn btn-primary" (click)="viewRecentReq(request.id)">View Details</button></td> -->
+							  </tr>
+							</tbody>
+						  </table>
+						  </div>
+						</div>
+					</div>
+					<!-- <div class="parent-dialogue" id="parent-dialogue">
+						<div class="popup" id="popup" style="z-index: 99;top:22rem;">
+						  <div>
+						  <img src="img/tick.png" alt="">
+						  <h2>OutPass Details</h2>
+						  <br>
+						  <div *ngIf="singleOutpass!=null"></div>
+						  <h4>Student Name : {{singleRequest.name}}</h4>
+						  <h4>Purpose of Leave : {{singleRequest.purposeofleave}}</h4>
+						  <h4>From Date : {{singleRequest.fromdate}}</h4>
+						  <h4>To Date : {{singleRequest.todate}}</h4>
+						  <h4>Arrival Time : {{singleRequest.timeofarrival}}</h4>
+						  <h4>Departure Time : {{singleRequest.timeofdeparture}}</h4>
+
+						  <button type="button" (click)="closePopup()">OK</button>
+						</div>
+						</div>
+					  </div> -->
+				</div>
+
+		   </div>
+		</div>
+	</div>
+</div>
+
+	<div *ngIf="showOutpassList">
+		
+		<div style="position: relative;top: 20rem;padding-left:0px;" class="content-start transition">
+			<div class="container-fluid dashboard">
+				<div class="content-header">
+					<h1>Outpass</h1>
+					<p></p>
+				</div>
+				
+				<div class="row" style="width: 70rem;">
+	
+					<div class="col-md-6 col-lg-3">
+						<div class="card">
+							<div style="width: 21rem;" class="card-body">
+								<div class="row">
+									<div class="col-4 d-flex align-items-center">
+										<i class="fas fa-id-card  icon-home bg-warning text-light"></i>
+									</div>
+									<div class="col-8">
+										<p>Outpass Requests</p>
+										<h5>{{listOfOutpass.length}}</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+	
+					</div>
+	
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h4>Outpass Requests</h4>
+							</div>
+							<div class="card-body"> 
+							<div class="table-responsive" style="max-height: 21rem;overflow-y: auto;"> 
+							<table class="table table-striped">
+								<thead>
+								  <tr>
+									<th scope="col">Id</th>
+									<th scope="col">Student Name</th>
+									<th scope="col">Purpose of Leave</th>
+									<th scope="col">From/To Date</th>
+									<th scope="col">Status</th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr *ngFor="let request of listOfOutpass">
+									<th scope="row">#SK{{request.id}}	</th>
+									<td>{{request.name}}</td>
+									<td>{{request.purposeofleave}}</td>
+									<td>{{request.fromdate}} - {{request.todate}}</td>
+									<td><span class="text-success">{{request.status}}</span></td>
+									<td><button class="btn btn-primary" (click)="viewOutpass(request.id)" >View Details</button></td>
+								  </tr>
+								</tbody>
+							  </table>
+							  </div>
+							</div>
+						</div>
+						<div class="parent-dialogue" id="parent-dialogue">
+							<div class="popup" id="popup" style="z-index: 99;top:22rem;">
+							  <div>
+							  <img src="img/tick.png" alt="">
+							  <h2>OutPass Details</h2>
+							  <br>
+							  <div *ngIf="singleOutpass!=null"></div>
+							  <h4>Student Name : {{singleOutpass.name}}</h4>
+							  <h4>Purpose of Leave : {{singleOutpass.purposeofleave}}</h4>
+							  <h4>Submitted Date : {{singleOutpass.submitteddate}}</h4>
+							  <h4>From Date : {{singleOutpass.fromdate}}</h4>
+							  <h4>To Date : {{singleOutpass.todate}}</h4>
+							  <h4>Arrival Time : {{singleOutpass.timeofarrival}}</h4>
+							  <h4>Departure Time : {{singleOutpass.timeofdeparture}}</h4>
+							  <input hidden #outpassid value={{singleOutpass.id}}/>
+								
+							  <h4><label for="cars">Status:</label></h4>
+							  <select style="height: 35px;width: 79px;" value={{singleOutpass.status}} (change)="onSelected(statuses.value)" name="cars" #statuses>
+								<option value="Pending" selected>Pending</option>
+								<option value="Rejected">Rejected</option>
+								<option value="Approved">Approved</option>
+								<!-- <option value="audi">Audi</option> -->
+							  </select>
+							
+							  <br><br>
+
+							  <button type="button" (click)="closeOutpassPopup(outpassid.value)">OK</button>
+							</div>
+							</div>
+						  </div>
+					</div>
+	
+			   </div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="showMaintanence">
+		
+		<div style="position: relative;top: 20rem;padding-left:0px;" class="content-start transition">
+			<div class="container-fluid dashboard">
+				<div class="content-header">
+					<h1>Maintanence</h1>
+					<p></p>
+				</div>
+				
+				<div class="row" style="width: 70rem;">
+	
+					<div class="col-md-6 col-lg-3">
+						<div class="card">
+							<div class="card-body" style="width: 21rem;">
+								<div class="row">
+									<div class="col-4 d-flex align-items-center">
+										<i class="fas fa-chart-bar  icon-home bg-info text-light"></i>
+									</div>
+									<div class="col-8">
+										<p>Maintainance Request
+										</p>
+										<h5>{{listOfMatainence.length}}</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+	
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h4>Maintainance</h4>
+							</div>
+							<div class="card-body"> 
+							<div class="table-responsive" style="max-height: 21rem;overflow-y: auto;"> 
+							<table class="table table-striped">
+								<thead>
+								  <tr>
+									<th scope="col">Id</th>
+									<th scope="col">Student Name</th>
+									<th scope="col">Title</th>
+									<th scope="col">Issue Type</th>
+									<th scope="col">Issue Description</th>
+									<th scope="col">status</th>
+
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr *ngFor="let request of listOfMatainence">
+									<th scope="row">#SK{{request.id}}</th>
+									<td>{{request.name}}</td>
+									<td>{{request.title}}</td>
+									<td>{{request.issueType}}</td>
+									<td>{{request.issueDesc}}</td>
+									<td><span class="text-success">{{request.status}}</span></td>
+									<td><button class="btn btn-primary" (click)="viewMaintainence(request.id)" >View Details</button></td>
+								  </tr>
+								</tbody>
+							  </table>
+							  </div>
+							</div>
+						</div>
+					</div>
+					<div class="parent-dialogue" id="parent-dialogue">
+                <div class="popup" id="popup" style="z-index: 99;top:22rem;">
+                  <div>
+                  <img src="img/tick.png" alt="">
+                  <h2>Maintainance Details</h2>
+                  <br>
+                  <div *ngIf="singleMaintainence.createdDate!=null"></div>
+				  <h4>Student Name : {{singleMaintainence.name}}</h4>
+                  <h4>Title : {{singleMaintainence.title}}</h4>
+                  <h4>Status : {{singleMaintainence.status}}</h4>
+                  <h4>Issue Type : {{singleMaintainence.issueType}}</h4>
+                  <h4>Issue Description : {{singleMaintainence.issueDesc}}</h4>
+                  <h4>Submitted Date : {{singleMaintainence.createdDate}}</h4>
+                  <button type="button" (click)="closePopup()">OK</button>
+                </div>
+                </div>
+              </div>
+			   </div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="showFeedback">
+		
+		<div style="position: relative;top: 20rem;padding-left:0px;" class="content-start transition">
+			<div class="container-fluid dashboard">
+				<div class="content-header">
+					<h1>Feedback</h1>
+					<p></p>
+				</div>
+				
+				<div class="row" style="width: 70rem;">
+	
+					<div class="col-md-6 col-lg-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-4 d-flex align-items-center">
+										<i class="fas fa-clipboard-list icon-home bg-success text-light"></i>
+									</div>
+									<div class="col-8">
+										<p>FeedBack</p>
+										<h5>{{listOfFeedback.length}}</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+	
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h4>Feedback Requests</h4>
+							</div>
+							<div class="card-body"> 
+							<div class="table-responsive" style="max-height: 21rem;overflow-y: auto;"> 
+							<table class="table table-striped">
+								<thead>
+								  <tr>
+									<th scope="col">Id</th>
+									<th scope="col">Student Name</th>
+									<th scope="col">Date</th>
+									<th scope="col">Message</th>
+									<!-- <th scope="col">Request Type</th> -->
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr *ngFor="let request of listOfFeedback">
+									<th scope="row">#SK{{request.id}}	</th>
+									<td>{{request.name}}</td>
+									<!-- <td><span class="text-success">{{request.status}}</span></td> -->
+									<td>{{request.createdDate}}</td>
+									<td>{{request.message}}</td>
+									<td><button class="btn btn-primary" (click)="viewFeedback(request.id)">View Details</button></td>
+								  </tr>
+								</tbody>
+							  </table>
+							  </div>
+							</div>
+						</div>
+					</div>
+					<div class="parent-dialogue" id="parent-dialogue">
+						<div class="popup" id="popup" style="z-index: 99;top:22rem;">
+						  <div>
+						  <img src="img/tick.png" alt="">
+						  <h2>Feedback Details</h2>
+						  <br>
+						  <div *ngIf="singleFeedBack"></div>
+						  <h4>Student Name : {{singleFeedBack.name}}</h4>
+						  <h4>Created Date : {{singleFeedBack.date}}</h4>
+						  <h4>Feed : {{singleFeedBack.message}}</h4>
+						  <button type="button" (click)="closePopup()">OK</button>
+						</div>
+						</div>
+					  </div>
+			   </div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="showComplaint">
+		
+		<div style="position: relative;top: 20rem;padding-left:0px;" class="content-start transition">
+			<div class="container-fluid dashboard">
+				<div class="content-header">
+					<h1>Complaints</h1>
+					<p></p>
+				</div>
+				
+				<div class="row" style="width: 70rem;">
+	
+					<div class="col-md-6 col-lg-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-4 d-flex align-items-center">
+										<i class="fas fa-inbox icon-home bg-primary text-light"></i>
+									</div>
+									<div class="col-8">
+										<p>Complaints</p>
+										<h5>{{listofComplaints.length}}</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+	
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h4>Complaint Requests</h4>
+							</div>
+							<div class="card-body"> 
+							<div class="table-responsive" style="max-height: 21rem;overflow-y: auto;"> 
+							<table class="table table-striped">
+								<thead>
+								  <tr>
+									<th scope="col">Id</th>
+									<th scope="col">Student Name</th>
+									<th scope="col">Date</th>
+									<th scope="col">Message</th>
+									<!-- <th scope="col">Request Type</th> -->
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr *ngFor="let request of listofComplaints">
+									<th scope="row">#SK{{request.id}}	</th>
+									<td>{{request.name}}</td>
+									<!-- <td><span class="text-success">{{request.status}}</span></td> -->
+									<td>{{request.createdDate}}</td>
+									<td>{{request.message}}</td>
+									<td><button class="btn btn-primary"  (click)="ViewComplaint(request.id)">View Details</button></td>
+								  </tr>
+								</tbody>
+							  </table>
+							  </div>
+							</div>
+						</div>
+					</div>
+					<div class="parent-dialogue" id="parent-dialogue">
+						<div class="popup" id="popup" style="z-index: 99;top:22rem;">
+						  <div>
+						  <img src="img/tick.png" alt="">
+						  <h2>Complaint Details</h2>
+						  <br>
+						  <div *ngIf="singleComplaint"></div>
+						  <h4>Student Name : {{singleComplaint.name}}</h4>
+						  <h4>Created Date : {{singleComplaint.createdDate}}</h4>
+						  <h4>Title : {{singleComplaint.message}}</h4>
+						  <button type="button" (click)="closePopup()">OK</button>
+						</div>
+						</div>
+					  </div>
+			   </div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Footer -->				
+	<footer>
+		<div class="footer">
+			<div class="float-start">
+				<p>2024 &copy; KctHostel</p>
+			</div>
+				<div class="float-end">
+					<p>Crafted with 
+						<span class="text-danger">
+							<i class="fa fa-heart"></i> by 
+							<a href="https://www.facebook.com/andreew.co.id/" class="author-footer">Andre Tri Ramadana</a>
+						</span> 
+					</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Preloader -->
+	<div class="loader">
+		<div class="spinner-border text-light" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+	
+	<!-- Loader -->
+	<div class="loader-overlay"></div>

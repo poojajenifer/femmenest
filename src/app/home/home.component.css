@@ -1,0 +1,611 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #f2f2f2;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #333;
+}
+.navbar {
+  display: flex;
+  padding: 0 10px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar input#menu-toggler {
+  display: none;
+}
+.navbar #hamburger-btn {
+  cursor: pointer;
+  display: none;
+}
+.navbar .all-links {
+  display: flex;
+  align-items: center;
+}
+.navbar .all-links li {
+  position: relative;
+  list-style: none;
+}
+.navbar .logo a {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+}
+header a, footer a {
+  margin-left: 40px;
+  text-decoration: none;
+  color: #fff;
+  height: 100%;
+  padding: 20px 0;
+  display: inline-block;
+}
+header a:hover, footer a:hover {
+  color: #ddd;
+}
+.homepage {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background: url("childhood.jpg");
+  background-position: center 65%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.homepage::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+.homepage .content {
+  display: flex;
+  height: 85%;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.homepage .content h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.homepage .content .text {
+  margin-bottom: 50px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.content a {
+  color: #000;
+  display: block;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0 10px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  background: #fff;
+  border: 2px solid #fff;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+.content a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.3);
+}
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px 0 0;
+}
+section h2 {
+  font-size: 2rem;
+}
+section > p {
+  text-align: center;
+}
+section .cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-top: 50px;
+  padding: 0 10px;
+  justify-content: space-between;
+}
+section.about {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.about .company-info {
+  margin-top: 30px;
+}
+.about h3 {
+  margin: 30px 0 10px;
+}
+.about .team {
+  text-align: left;
+  width: 100%;
+}
+.about .team ul {
+  padding-left: 20px;
+}
+section .cards .card {
+  background: #fff;
+  padding: 40px 15px;
+  list-style: none;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+  margin-bottom: 40px;
+  width: calc(100% / 3 - 30px);
+  text-align: center;
+}
+.portfolio .cards .card {
+  padding: 0 0 20px;
+}
+.services .card img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.portfolio .card img {
+  width: 100%;
+  padding-bottom: 10px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 7px;
+}
+.cards .card p {
+  padding: 0 15px;
+  margin-top: 5px;
+}
+.about .row {
+  padding: 0 10px;
+}
+.contact .row {
+  margin: 60px 0 90px;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact .row .col {
+  padding: 0 10px;
+  width: calc(100% / 2 - 50px);
+}
+.contact .col p {
+  margin-bottom: 10px;
+}
+.contact .col p i {
+  color: #7a7a7a;
+  margin-right: 10px;
+}
+.contact form input {
+  height: 45px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid #bfbfbf;
+}
+.contact .form textarea {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  height: 150px;
+  outline: none;
+  resize: vertical;
+  border: 1px solid #bfbfbf;
+}
+/* .contact form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 17px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #333;
+  transition: 0.2s ease;
+} */
+.contact form button:hover {
+  background: #525252;
+}
+footer {
+    width: 1519px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    right: 0px;
+    /* bottom: 12px; */
+    background: #000;
+    padding: 20px 0;
+}
+footer div {
+  padding: 0 10px;
+  max-width: 1200px;
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-between;
+}
+footer span {
+  color: #fff;
+}
+footer a {
+  padding: 0;
+}
+@media screen and (max-width: 860px) {
+  .navbar .all-links {
+    position: fixed;
+    left: -100%;
+    width: 300px;
+    display: block;
+    height: 100vh;
+    top: 75px;
+    background: #333;
+    transition: left 0.3s ease;
+  }
+  .navbar #menu-toggler:checked~.all-links {
+    left: 0;
+  }
+  .navbar .all-links li {
+    font-size: 18px;
+  }
+  .navbar #hamburger-btn {
+    display: block;
+  }
+  section > p {
+    text-align: center;
+  }
+  section .cards .card {
+    width: calc(100% / 2 - 15px);
+    margin-bottom: 30px;
+  }
+  .homepage .content h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .homepage .content .text {
+    font-size: 17px;
+  }
+  .content a {
+    font-size: 17px;
+    padding: 9px 20px;
+  }
+  .contact .row {
+    flex-direction: column;
+  }
+  .contact .row .col {
+    width: 100%;
+  }
+  .contact .row .col:last-child {
+    margin-top: 40px;
+  }
+  footer a {
+    height: 0;
+  }
+}
+
+.hoverclass{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 560px) {
+  section .cards .card {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.dialogue-box {
+  display: flex;
+  justify-content: center;
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Dialogue Content */
+.dialogue-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close-button {
+  position: absolute;
+  left: 47rem;
+  color: #aaa;
+    /* left: 19rem; */
+    /* float: right; */
+    font-size: 41px;
+    /* height: 18px; */
+    /* position: relative; */
+    font-weight: bold;
+    bottom: 32px;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dialogue-header h2 {
+  margin: 0;
+}
+
+.dialogue-body {padding: 2px 16px;}
+
+.dialogue-footer {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.close-btn {
+  padding: 10px 20px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #666;
+}
+/* .form {
+  --width-of-input: 200px;
+  --border-height: 1px;
+  --border-before-color: rgba(221, 221, 221, 0.39);
+  --border-after-color: #5891ff;
+  --input-hovered-color: #4985e01f;
+  position: relative;
+  width: var(--width-of-input);
+ } */
+ /* styling of Input */
+ .input-style {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  height: 38px;
+  color: #555;
+  outline: none;
+  width: 30rem;
+}
+
+.input-style:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+ /* === if you want to do animated border on typing === */
+ /* remove input:focus code and uncomment below code */
+ /* input:valid ~ .input-border{
+   width: 100%;
+ } */
+ .form {
+  height: 37rem;
+  padding: 50px;
+  top: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 100rem;
+  width: 53rem;  
+  border-radius: 20px;
+  position: relative;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #00bfff;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #00bfff;
+}
+
+.message, 
+.signin {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a:hover {
+  text-decoration: underline royalblue;
+}
+
+.signin a {
+  color: #00bfff;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 20px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #00bfff;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+  background-color: #00bfff;
+}
+
+.submit:hover {
+  background-color: #00bfff96;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #2eb774;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 90px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  background-color: #2eb774;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar.showerror {
+  visibility: visible;
+  background-color: red;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 90px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 90px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 90px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 90px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}

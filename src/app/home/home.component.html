@@ -1,0 +1,212 @@
+<header>
+    <nav class="navbar">
+      <h2 class="logo"><a href="#">KCT College Hostel</a></h2>
+      <input type="checkbox" id="menu-toggler">
+      <label for="menu-toggler" id="hamburger-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </label>
+      <ul class="all-links">
+        <li><a href="home">Home</a></li>
+        <li><a href="studentprofile">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="homepage" id="home">
+    <div class="content">
+      <div class="text">
+        <h1>Warm welcome to our Femmenest Campus Residence </h1>
+        <p>
+          Efficiency---Transparancy---Security---ease of Communication</p>
+      </div>
+    </div>
+  </section>
+  <section class="services" id="services">
+    <h2>Student Services</h2>
+    <p>Explore our wide range of servies for the student residents of KCT</p>
+    <ul class="cards">
+      <li class="card">
+        <img src=".\.\assets\images\out.png" alt="img" style="margin-left: 100px;">
+        <h3 (click)="openDialog($event)" class="hoverclass" >Generate Outpass</h3>
+        <p>Importance of ensuring safety and accountability for hostel students</p>
+      </li>
+      <li class="card">
+        <img src=".\.\assets\images\outpass.png" alt="img" style="margin-left: 100px;">
+        <h3 (click)="openDialog($event)" class="hoverclass">Request for Room Maintainance</h3>
+        <p>Students can raise maintenance requests for issues in their rooms, which are managed by administrators.</p>
+      </li>
+      <li class="card">
+        <img src=".\.\assets\images\maint.png" alt="img" style="margin-left: 100px;">
+        <h3 (click)="openDialog($event)" style="ZIndex:50" class="hoverclass" >Raise Complaint</h3>
+        <p>Students can able to raise a complaint for issues they facing in the hostel during the day that can be viewed and managed by administrators even the student privacy can protected.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- <section class="portfolio" id="portfolio">
+    <h2>Our Portfolio</h2>
+    <p>Take a look at some of our amenities of the hostel residence.</p>
+    <ul class="cards">
+      <li class="card">
+        <img src="images/camping-1.jpg" alt="img">
+        <h3>Programes</h3>
+        <p>explore our programes and surrounding environment</p>
+      </li>
+      <li class="card">
+        <img src="images/camping-2.jpg" alt="img">
+        <h3>Events</h3>
+        <p>Cultural events, celebrations, and themed gatherings to celebrate diversity and promote cultural exchange.</p>
+      </li>
+      <li class="card">
+        <img src="images/camping-3.jpg" alt="img">
+        <h3>Supportive Community</h3>
+        <p>A vibrant and inclusive community where female students can thrive academically, socially, and personally.</p>
+      </li>
+      <li class="card">
+        <img src="images/camping-4.jpg" alt="img">
+        <h3>Mess amenities and other facilities</h3>
+        <p>Discover the wonders of mess features of KCT</p>
+      </li>
+      <li class="card">
+        <img src="images/camping-5.jpg" alt="img">
+        <h3>Wellness and Sports</h3>
+        <p>Fitness facilities and recreational spaces to promote physical health and well-being.
+          Wellness programs, yoga sessions, and mental health support services to foster a balanced lifestyle.</p>
+      </li>
+      <li class="card">
+        <img src="images/camping-6.jpg" alt="img">
+        <h3>Security Assurance</h3>
+        <p>We prioritize the safety and security of our residents with 24/7 security surveillance, access control systems, and dedicated security personnel.</p>
+      </li>
+    </ul>
+  </section> -->
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>Our college hostel is more than just a place to stay; it's a vibrant hub of activity, learning, and growth. Nestled within the heart of our institution, we pride ourselves on providing a nurturing environment where students can flourish both academically and personally.</p>
+    <div class="row company-info">
+      <h3>Our Story</h3>
+      <p>Experience the excellence of our amenities and services, where we have been offering high-quality residing experience and gear for hasslefree living for over a decade. Our commitment to quality and student satisfaction ensures that every student can rely on us for their better residence.</p>
+    </div>
+    <div class="row mission-vision">
+      <h3>Our Mission</h3>
+      <p>To foster a vibrant and inclusive community within our college hostel, where students feel safe, supported, and inspired to thrive academically, socially, and personally</p>
+      <h3>Our Vision</h3>
+      <p>Our vision is to provide a home away from home for our residents, offering a conducive environment that promotes holistic growth, lifelong friendships, and memorable experiences. Through fostering a culture of respect, collaboration, and personal responsibility, we aim to cultivate leaders who positively impact their communities and the world beyond.</p>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <h2>FeedBack</h2>
+    <p>Reach out to us for any feedback.</p>
+    <div class="row">
+      <div class="col information">
+        <div class="contact-details">
+          <p><i class="fas fa-map-marker-alt"></i> KCT College Hostel,Coimbatore </p>
+          <p><i class="fas fa-phone"></i> +9144567890</p>
+          <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+          <p><i class="fas fa-clock"></i> Saturday: 10:00 AM - 3:00 PM</p>
+          <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+          <p><i class="fas fa-globe"></i> www.kctweb.com</p>
+        </div>          
+      </div>
+      <div class="col form" style="background: transparent;border:none;">
+        <!-- <form> -->
+          <!-- <input type="text" #name placeholder="Name*"  required> -->
+          <!-- <input type="email" #email placeholder="Email*" required> -->
+          <textarea placeholder="Message*" #message required></textarea>
+          <button style="border-radius: 13px;width: 123px;height: 41px;position: relative;left: 13rem;top: 22px;" (click)="submitfeedback(message)" id="submit">Send Message</button>
+        <!-- </form> -->
+      </div>
+    </div>
+    <div *ngIf="showDialogueComplaint" id="dialogueBox" class="dialogue-box">
+      <!-- Dialogue Box Content -->
+      <div class="form">
+        <p class="title">{{dialogueTitle}}<span class="close-button" (click)="closeDialog()">&times;</span></p>
+        <p class="message">Signup now and get full access to our app.</p>
+
+        <!-- <div *ngFor="let field of textFields"> -->
+          <label>
+            <input class="input" #natureofcomplaint type="text" placeholder="" required="">
+            <span>Nature of Complaint</span>
+        </label>
+        <label>
+          <input class="input" #additionalcomments type="text" placeholder="" required="">
+          <span>Additional Comments</span>
+        </label>
+        <label>
+          <input class="input" #prioritylevel type="text" placeholder="" required="">
+          <span>Priority</span>
+        </label> 
+        <button (click)="submitComplaintReq(natureofcomplaint,additionalcomments,prioritylevel)" class="submit">Submit</button>
+    </div>
+    </div>
+    <div *ngIf="showDialogMaintain" id="dialogueBox" class="dialogue-box">
+      <!-- Dialogue Box Content -->
+      <div class="form">
+        <p class="title">{{dialogueTitle}}<span class="close-button" (click)="closeDialog()">&times;</span></p>
+        <p class="message">Signup now and get full access to our app.</p>
+        <!-- <div *ngFor="let field of textFields"> -->
+            <label style="width: 100%;">
+                <input class="input" #issueTitle type="text" placeholder="" required="">
+                <span>Title</span>
+            </label>
+          <!-- </div> -->
+    
+            <label>
+                <input class="input" #issueType type="text" placeholder="" required="">
+                <span>Issue Type</span>
+            </label>
+                
+        <label>
+            <textarea class="input" #issueDesc type="text" placeholder="" required=""></textarea>
+            <span>Issue Description</span>
+        </label> 
+        <button (click)="submitMaintainReq(issueTitle,issueType,issueDesc)" class="submit">Submit</button>
+    </div>
+    </div>
+    <div *ngIf="showDialogOutpass" id="dialogueBox" class="dialogue-box">
+      <!-- Dialogue Box Content -->
+      <div class="form">
+        <p class="title">{{dialogueTitle}}<span class="close-button" (click)="closeDialog()">&times;</span></p>
+        <p class="message">Signup now and get full access to our app.</p>
+        <!-- <div *ngFor="let field of textFields"> -->
+            <label style="width: 100%;">
+                <input class="input" #purpose type="text" placeholder="" required="">
+                <span>Purpose of Leave</span>
+            </label>
+          <!-- </div> -->
+    
+            <label>
+                <input class="input" #fromdate type="date" placeholder="" required="">
+                <span>From Date</span>
+            </label>
+            <label>
+              <input class="input" #todate type="date" placeholder="" required="">
+              <span>To Date</span>
+          </label>
+                
+        <!-- <label>
+            <input class="input" #noofdays type="text" placeholder="" required="">
+            <span>No of Days</span>
+        </label>  -->
+            
+        <label>
+            <input class="input" #departuretime type="time" placeholder="" required="">
+            <span>Time of Departure</span>
+        </label>
+        <label>
+          <input class="input" #arrivaltime type="time" placeholder="" required="">
+          <span>Time of Arrival</span>
+      </label>
+        <button (click)="submitOutpassReq(purpose,fromdate,todate,departuretime,arrivaltime)" class="submit">Submit</button>
+    </div>
+    </div>
+  </section>
+  <!-- <button (click)="showToast()">Show Snackbar</button> -->
+  <div id="snackbar" >{{toastMessage}} Created Successfully.</div>
+  <footer>
+    <div>
+      <span>Copyright © 2023 All Rights Reserved</span>
+    </div>
+  </footer>

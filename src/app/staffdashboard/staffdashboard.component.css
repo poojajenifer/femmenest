@@ -1,0 +1,100 @@
+@media (min-width: 768px) {
+    .dashboard-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .Outpass:hover{
+    cursor: pointer;
+  }
+  .Maintainence:hover{
+    cursor: pointer;
+  }
+  .FeeddBack:hover{
+    cursor: pointer;
+  }
+  
+  .btns{
+    padding: 10px 60px;
+    background: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.btns:active{
+    transform: scale(0.95);
+}
+
+.popup{
+    width: 400px;
+    background: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 60px;
+    color: #333;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.parent-dialogue{
+    visibility: hidden;
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.open-popup{
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    /* left: 37rem; */
+    visibility: visible;
+    /* top: 50%; */
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img{
+    width: 100px;
+    margin-top: -50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: #e02189;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}

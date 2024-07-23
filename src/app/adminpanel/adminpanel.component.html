@@ -1,0 +1,419 @@
+<div style="height: 100%;width:100%">
+
+        
+<div class="side-menu">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <ul>
+        <li class="nav-items" (click)="handleDashboard()" ><img src=".\.\assets\images\dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
+        <li class="nav-items" (click)="handleStudents()" ><img src=".\.\assets\images\reading-book (1).png" alt="">&nbsp;<span>Students</span> </li>
+        <li class="nav-items" (click)="handleStaffs()"><img src=".\.\assets\images\teacher2.png" alt="">&nbsp;<span>Staffs</span> </li>
+        <!-- <li class="nav-items" (click)="handleHostelNews()" ><img src=".\.\assets\images\school.png" alt="">&nbsp;<span>Hostel News</span> </li> -->
+        <li class="nav-items" (click)="loginpage()" ><img src=".\.\assets\images\settings.png" alt="">&nbsp;<span>Logout</span> </li>
+    </ul>
+</div>
+<div *ngIf="showStudents" class="containers">
+    <h1 style="display: flex;justify-content:center;top:20px;position:relative">Students</h1>
+    <div class="content">
+        <div class="content-2">
+            <div class="recent-payments">
+                <div class="title">
+                    <h2>Student List<a style="left: 23rem;" (click)="openStudentCreation()" class="btn">+ Create Student</a></h2>
+                </div>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll No</th>
+                        <th>Email</th>
+                        <th>Class</th>
+                        <th>Room No</th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                    <tr *ngFor="let element of listOfStudents">
+                        <td>{{element.firstname}} {{element.lastname}}</td>
+                        <td>{{element.rollNo}}</td>
+                        <td>{{element.studentEmail}}</td>
+                        <td>{{element.classes}}</td>
+                        <td>{{element.roomNo}}</td>
+                        <td><a class="btn" (click)="viewStudent(element.id)">View</a></td>
+                        <td><a class="btn" (click)="deleteStudentConfirm(element.id)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18"/>
+                            <path d="M5 6v14a2 2 0 002 2h10a2 2 0 002-2V6"/>
+                            <path d="M9 6V4a2 2 0 012-2h2a2 2 0 012 2v2"/>
+                            <rect x="10" y="11" width="1" height="6" />
+                            <rect x="13" y="11" width="1" height="6" />
+                            <path d="M21 6H3"/>
+                        </svg></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="parent-dialogue" id="parent-dialogue">
+            <div class="popup" id="popup" style="z-index: 99;top:22rem;">
+              <div>
+              <img src="img/tick.png" alt="">
+              <h2>Student Details</h2>
+              <br>
+              <div *ngIf="singleStudent">
+              <h4>First Name : {{singleStudent.firstname}}</h4>
+              <h4>Last Name  : {{singleStudent.lastname}}</h4>
+              <h4>D O B      : {{singleStudent.dob}}</h4>
+              <h4>Email      : {{singleStudent.studentEmail}}</h4>
+              <h4>Roll No	 : {{singleStudent.rollNo}}</h4>
+              <h4>Mobile Number : {{singleStudent.mobileNumber}}</h4>
+              <h4>Department : {{singleStudent.department}}</h4>
+              <h4>Class	   : {{singleStudent.classes}}</h4>
+              <h4>Mentor Email : {{singleStudent.mentorEmail}}</h4>
+              <h4>Parent Email : {{singleStudent.parentEmail}}</h4>
+              <h4>Address : {{singleStudent.address}}</h4>
+              <h4>Parent/Guardian Number : {{singleStudent.pgnumber}}</h4>
+              <h4>Room No Alloted : {{singleStudent.roomNo}}</h4>
+
+              <button type="button" (click)="closePopup()" >OK</button>
+            </div>
+            </div>
+            </div>
+          </div>
+    </div>    
+</div>
+        <div *ngIf="showStaffs" class="containers">
+            <h1 style="display: flex;justify-content:center;top:20px;position:relative">Staffs</h1>
+            <div class="content">
+                <div class="content-2">
+                    <div class="recent-payments">
+                <div class="title">
+                    <h2>Staffs List <a style="left: 23rem;" class="btn" (click)="openStaffCreation()">+ Create Staffs</a></h2>
+                </div>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mail Id</th>
+                        <th>Mobile Number</th>
+                        <th></th>
+                    </tr>
+                    <tr *ngFor="let element of listOfStaffs">
+                        <td>{{element.name}}</td>
+                        <td>{{element.mailId}}</td>
+                        <td>{{element.phoneNumber}}</td>
+                        <td><a  class="btn" (click)="viewStaff(element.id)">View</a></td>
+                        <td><a  class="btn" (click)="deleteStaffonfirm(element.id)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18"/>
+                            <path d="M5 6v14a2 2 0 002 2h10a2 2 0 002-2V6"/>
+                            <path d="M9 6V4a2 2 0 012-2h2a2 2 0 012 2v2"/>
+                            <rect x="10" y="11" width="1" height="6" />
+                            <rect x="13" y="11" width="1" height="6" />
+                            <path d="M21 6H3"/>
+                        </svg></a></td>
+
+                        </tr>
+                     </table>
+                    </div>
+                </div>
+                <div class="parent-dialogue" id="parent-dialogue">
+                    <div class="popup" id="popup" style="z-index: 99;top:22rem;">
+                      <div>
+                      <img src="img/tick.png" alt="">
+                      <h2>Staff Details</h2>
+                      <br>
+                      <div *ngIf="singleStaff">
+                      <h4>Staff Name : {{singleStaff.name}}</h4>
+                      <h4>DOB : {{singleStaff.dateOfBirth}}</h4>
+                      <h4>Blood Group : {{singleStaff.bloodGroup}}</h4>
+                      <h4>Phone Number : {{singleStaff.phoneNumber}}</h4>
+                      <h4>Mail-id : {{singleStaff.mailId}}</h4>
+                      <h4>Permanent Address : {{singleStaff.mailId}}</h4>
+                      <h4>Pincode :  {{singleStaff.pincode}}</h4>
+        
+                      <button type="button" (click)="closePopup()" >OK</button>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+            </div> 
+        </div>
+        <!--Student Account Creation-->
+
+        <div *ngIf="showStudentCreation" id="dialogueBox" class="dialogue-box">
+            <!-- Dialogue Box Content -->
+            <div class="form">
+              <p class="titles">{{dialogueTitle}}<span class="close-button" (click)="closeStudentCreationDialog()">&times;</span></p>
+              <div style="height: 27rem;overflow: auto;" class="inputs">
+                <!-- <label>
+                    <input class="input" #name type="text" placeholder="" required="">
+                    <span>Name</span>
+                </label> -->
+                <label>
+                    <input class="input" #firstName type="text" placeholder="" required="">
+                    <span>First Name</span>
+                </label>
+                <label>
+                    <input class="input" #lastName type="text" placeholder="" required="">
+                    <span>Last Name</span>
+                </label>
+                <label>
+                    <input class="input" #dob type="date" placeholder="" required="">
+                    <span>D O B</span>
+                </label>
+                <label>
+                  <input class="input" #email type="text" placeholder="" required="">
+                  <span>Email</span>
+                </label>
+                <label>
+                  <input class="input" #rollNo type="text" placeholder="" required="">
+                  <span>Roll No</span>
+                </label>
+                <label>
+                    <input class="input" #mobileNumber type="text" placeholder="" required="">
+                    <span>Mobile Number</span>
+                </label>
+                <label>
+                    <input class="input" #alternateMobile type="text" placeholder="" required="">
+                    <span>Alternate Mobile Number</span>
+                </label>
+                <label>
+                  <input class="input" #department type="text" placeholder="" required="">
+                  <span>Department</span>
+                </label>
+                <label>
+                    <input class="input" #class type="text" placeholder="" required="">
+                    <span>Class</span>
+                  </label>
+                <label>
+                  <input class="input" #mentorEmail type="text" placeholder="" required="">
+                  <span>Mentor email</span>
+                </label>
+                <label>
+                    <input class="input" #parentEmail type="text" placeholder="" required="">
+                    <span>Parent email</span>
+                  </label>
+                <label>Choose Staff</label>
+                <label>
+                <select class="input" #staffname name="Staff" id="Staff">
+                    <option *ngFor="let field of listOfStaffs" value="{{field.name}}">{{field.name}}</option>
+                    <!-- <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option> -->
+                </select>
+            </label>
+                <label>
+                  <input class="input" #state type="text" placeholder="" required="">
+                  <span>State</span>
+                </label>
+                <label>
+                    <input class="input" #city type="text" placeholder="" required="">
+                    <span>City</span>
+                </label>
+                <label>
+                    <input class="input" #pincode type="text" placeholder="" required="">
+                    <span>Pincode</span>
+                </label>
+                <label>
+                    <input class="input" #address type="text" placeholder="" required="">
+                    <span>Address</span>
+                </label>
+                <label>
+                  <input class="input" #parentorguardian type="text" placeholder="" required="">
+                  <span>Parent/Guradian Mobile Number</span>
+                </label>
+                <label>
+                    <input class="input" #roomNo type="text" placeholder="" required="">
+                    <span>Room No Alloted</span>
+                </label> 
+              </div>
+              <button (click)="createStudent(dob,email,rollNo,mobileNumber,alternateMobile,department,class,mentorEmail,staffname,state,city,address,parentorguardian,roomNo,pincode,parentEmail,firstName,lastName)" style="margin: 16px;position: relative;left: 17rem;width: 11rem;" class="submit">Submit</button>
+          </div>
+        </div>
+        <!--Student Account Creation Ends-->
+        <!--Staff Account Creation Starts-->
+
+        <div *ngIf="showStaffCreation" id="dialogueBox" class="dialogue-box">
+            <!-- Dialogue Box Content -->
+            <div class="form">
+              <p class="titles">{{dialogueTitle}}<span class="close-button" (click)="closeStaffCreationDialog()">&times;</span></p>
+              <div style="height: 27rem;overflow: auto;" class="inputs">
+                <label>
+                    <input class="input" #name type="text" placeholder="" required="">
+                    <span>Staff name</span>
+                </label>
+                <label>
+                  <input class="input" #dob type="date" placeholder="" required="">
+                  <span>DOB</span>
+                </label>
+                <label>
+                  <input class="input" #bloodGroup type="text" placeholder="" required="">
+                  <span>Blood group</span>
+                </label>
+                <label>
+                    <input class="input" #phoneNumber type="text" placeholder="" required="">
+                    <span>Phone number</span>
+                </label>
+                <label>
+                    <input class="input" #mailId type="text" placeholder="" required="">
+                    <span>Mail-id</span>
+                </label>
+                <label>
+                  <input class="input" #permanentAddress type="text" placeholder="" required="">
+                  <span>Permanent Address</span>
+                </label>
+                <label>
+                    <input class="input" #pincode type="text" placeholder="" required="">
+                    <span>Pincode</span>
+                  </label> 
+              </div>
+              <button (click)="createStaff(name,dob,pincode,permanentAddress,phoneNumber,bloodGroup,mailId)" style="margin: 16px;position: relative;left: 17rem;width: 11rem;" class="submit">Create</button>
+          </div>
+        </div>
+        <!--Staff Account Creation Ends-->
+        <!-- <div *ngIf="showHostelNews" class="containers">
+            <h1 style="display: flex;justify-content:center;top:20px;position:relative">Hostel News</h1>
+            <div class="content">
+            <div class="content-2">
+                <div class="recent-payments">
+                    <div class="title">
+                        <h2>Hostel News <a style="left: 23rem;" href="#" class="btn">+ Create Hostel News</a></h2>
+                    </div>
+                      <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>St. James College</td>
+                        <td>$120</td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>St. James College</td>
+                        <td>$120</td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>St. James College</td>
+                        <td>$120</td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>St. James College</td>
+                        <td>$120</td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>St. James College</td>
+                        <td>$120</td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>St. James College</td>
+                        <td>$120</td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr>
+                 </table>
+                </div>
+            </div>
+        </div> 
+        </div>   -->
+
+<div *ngIf="showDashboard" class="containers" >
+    <h1 style="display: flex;justify-content:center;top:20px;position:relative">Welcome Admin</h1>
+    <div class="content" style="margin-top: 3vh;">
+        <div class="cards">
+            <div class="card">
+                <div class="box">
+                    <h1>{{listOfStudents.length}}</h1>
+                    <h3>Students</h3>
+                </div>
+                <div class="icon-case">
+                    <img src=".\.\assets\images\students.png" alt="">
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{listOfStaffs.length}}</h1>
+                    <h3>Staffs</h3>
+                </div>
+                <div class="icon-case">
+                    <img src=".\.\assets\images\teachers.png" alt="">
+                </div>
+            </div>
+            <!-- <div class="card">
+                <div class="box">
+                    <h1>5</h1>
+                    <h3>Hostel News</h3>
+                </div>
+                <div class="icon-case">
+                    <img src=".\.\assets\images\schools.png" alt="">
+                </div>
+            </div> -->
+        </div>
+        <div class="content-2">
+            <div class="recent-payments">
+                <div class="title">
+                    <h2>Recent Staffs</h2>
+                </div>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <!-- <th></th> -->
+                    </tr>
+                    <tr *ngFor="let item of listOfRecentsStaff">
+                        
+                        <td *ngIf="item">{{item.name}}</td>
+                        <td *ngIf="item">{{item.phoneNumber}}</td>
+                        <td *ngIf="item">{{item.mailId}}</td>
+                        <!-- <td><a href="#" class="btn">View</a></td> -->
+                    </tr>
+                </table>
+            </div>
+            <div class="new-students">
+                <div class="title">
+                    <h2>New Students</h2>
+                </div>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <!-- <th></th> -->
+                    </tr>
+                    <tr *ngFor="let item of listOfRecentsStudent">
+                        <td *ngIf="item">{{item.firstname}} {{item.lastname}}</td>
+                        <td *ngIf="item">{{item.classes}}</td>
+                        <!-- <td><a href="#" class="btn">View</a></td> -->
+                    </tr>
+                    <!-- <tr>
+                        <td>John Steve Doe</td>
+                        <td><img src=".\.\assets\images\info.png" alt=""></td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>John Steve Doe</td>
+                        <td><img src=".\.\assets\images\info.png" alt=""></td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>John Steve Doe</td>
+                        <td><img src=".\.\assets\images\info.png" alt=""></td>
+                        <td><a href="#" class="btn">View</a></td>
+                    </tr> -->
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="snackbar" >{{toastMessage}} Successfully.</div>
+</div>
